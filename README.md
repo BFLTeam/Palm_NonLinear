@@ -21,3 +21,8 @@ The CPD code in the project is from https://github.com/siavashk/pycpd
 4. Change the network to desired model: example inceptionv3 or alexnet
 5. Change the OUTPUT_PATH appropriately to save the model being trained.
 6. Run main.py script from the root folder to train the model.
+
+# Config settings:
+1. Set STANDARD_AUGMENT to True and TRANSLATION_ONLY to False for full affine data augmentation.
+2. Set TRANSLATION_ONLY to True when using non-linearly augmented training data to combine them (NltTrans).
+3. Please refer to the paper to set other parameters.
