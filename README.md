@@ -11,6 +11,8 @@ Dependencies:
 5. PIL
 6. OpenCV
 
+The CPD code in the project is from https://github.com/siavashk/pycpd
+
 
 # Steps to train:
 1. Set the data path, the anim_frames path for the dataset in config file.
