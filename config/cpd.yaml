@@ -1,0 +1,33 @@
+# Settings for CPD transform script
+ANIM_FRAMES_PATH: anim_frames/CASIA_Orientation
+CPD_IN: data/CASIA/flip/ROI/train/
+CPD_OUT: cpd_data/CASIA/flip/ROI/train/
+
+# Settings for the Deep NN classifier script
+BATCH_SIZE: 32
+CUDA: True
+N_EPOCHS: 1000
+N_WORKERS: 0
+SEED: 916
+
+RESUME: False
+RESUME_CHKPT: 0
+
+LR: 0.01
+MOMENTUM: 0.9
+WEIGHT_DECAY: 0.0005
+NETWORK: inceptionv3
+
+OUTPUT_PATH: output/CASIA/exp04_augment_inceptionv3_Above_Conv2d4a_roi_cropped
+TRAIN_IMG_DIR: data/CASIA/flip/ROI/train/
+TEST_IMG_DIR: data/CASIA/flip/ROI/test/
+
+ENLARGE_SIZE: 256
+CROP_SIZE: 224
+RESCALE_SIZE: 299
+
+NUM_CLASSES: 1000
+
+STANDARD_AUGMENT: True
+
+SAVE_FREQ: 25
