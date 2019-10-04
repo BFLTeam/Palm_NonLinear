@@ -38,15 +38,22 @@ class DatasetFromFolder(data.Dataset):
         else:
             self.augment = False
 
+        if image_dir==cfg['TRAIN_IMG_DIR'] and cfg['TRANSLATION_ONLY']:
+            self.translation_only = True
+        else:
+            self.translation_only = False
+
         self.input_transform = input_transform(cfg['CROP_SIZE'], cfg['ENLARGE_SIZE'], cfg['RESCALE_SIZE'])
         self.target_transform = None
 
     def __getitem__(self, index):
         in_img = load_img(self.image_filenames[index])
-        if self.augment is True:
+        if self.augment is True and self.translation_only is False:
             random.shuffle(self.angles)
             self.angle = self.angles[0]
             in_img = in_img.rotate(self.angle, expand=False)
+
+        if self.augment or self.translation_only:
             h = random.randint(-15, 15)
             v = random.randint(-15, 15)
             in_img = in_img.transform(in_img.size, Image.AFFINE, (1, 0, h, 0, 1, v))
