@@ -199,9 +199,12 @@ if __name__ == '__main__':
             #print(file)
 
         input_files = glob.glob(f_path + "/*")
+        cpdTransform = CPDTransform()
         for i_path in input_files:
             file = getbasefilename(i_path)
             if file in processed_files:
                 print("Ignoring: ", file)
                 continue
-            call_cpd(cfg, i_path, out_path)
+            print("Processing file: ", i_path)
+            cpdTransform.gen(cfg, i_path, out_path)
+        del cpdTransform
